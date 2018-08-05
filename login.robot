@@ -21,4 +21,16 @@ Cannot Login When User Has No Authorize
     Click Button    login-button
     Wait Until Element Is Visible    error-message
     Wait Until Page Contains    authorization failed
+
+Disabled Login Button When Username Or Password Are Blank
+    Open Browser    ${URL}    ${BROWSER_DRIVER}
+    Input Text    id=username     phatpan
+    Input Text    id=password     ${EMPTY}
+    Element Should Be Disabled    login-button
+
+Enabled Login Button When Username And Password Not Blank
+    Open Browser    ${URL}    ${BROWSER_DRIVER}
+    Input Text    id=username     phatpan
+    Input Text    id=password     1234
+    Element Should Be Enabled     login-button
     
